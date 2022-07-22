@@ -54,19 +54,33 @@
 // document.getElementById("ex5").innerHTML = sum5;
 
 // ex 6 salary calculator:
-var annualIncrease = 1.05
-var retireAge = 65
-var age = document.getElementById("age").value
-var userAge = parseInt(age)
-// var ageToRetire =  retireAge - parseInt(age)
-var annualSalary = document.getElementById("salary")
-var totalEarned = 0
+
 
 function calculate(){
-    for(i = userAge; i < retireAge; i++){
-     totalEarned = (annualSalary *= annualIncrease) * i
+    var annualIncrease = 1.05
+    var retireAge = 65
+    var age = document.getElementById("age").value
+    // var userAge = parseInt(age)
+    // var yearsLeft =  retireAge - userAge
+    var annualSalary = document.getElementById("salary")
+    var totalEarned = 0
+    for(i = age; i < retireAge; i++){
+     totalEarned = (annualSalary *= annualIncrease) * i;
+     document.getElementById("displayResult").innerHTML += totalEarned;
     }
 }
-document.getElementById("displayResult").innerHTML += totalEarned;
-//  var totalEarned = (annualSalary *= annualIncrease) * ageToRetire;
-    
+
+
+function result(){
+    var numOfDays = document.getElementById("workingDays").value
+    var displayMsg = document.getElementById('showOption')
+    if(numOfDays <= 9){
+        var optionOneTotal = numOfDays * 100;
+        displayMsg.innerHTML += " You'll earn $" + optionOneTotal + " so option 1 is better";
+    } else{
+        for(i = 1; i >= 10; i * 2){
+            var optionTwoTotal = numOfDays * 2;
+            displayMsg.innerHTML += " You'll earn $" + optionTwoTotal + " so option 1 is better";
+        }
+    }
+}
